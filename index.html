@@ -1,14 +1,21 @@
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
-<script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7620235356155543557', // ID bot của bạn
-    },
-    componentProps: {
-      title: 'AiSecurityTDC Assistant',
-      icon: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/hel_lp_vvsh/coze/logo.png', // Có thể thay bằng link ảnh của bạn
-      lang: 'en', // Hoặc 'zh-CN'
-    },
-    // Không dùng phần auth: { type: 'token' } để đảm bảo an toàn public
-  });
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Coze Demo</title>
+</head>
+<body>
+    <h1>Chatbot Coze Demo</h1>
+
+    <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7620235356155543557',
+            },
+            componentProps: {
+                title: 'AiSecurityTDC',
+            },
+        });
+    </script>
+</body>
+</html>
