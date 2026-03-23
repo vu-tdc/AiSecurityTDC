@@ -1,35 +1,14 @@
-```html
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Coze Chatbot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 90vh;
-      border: none;
-    }
-  </style>
-</head>
-
-<body>
-  <h2>Chatbot Coze Demo</h2>
-
-  <!-- Chatbot iframe -->
-  <iframe
-    src="https://www.coze.com/open-bot?bot_id=7620235356155543557"
-    allow="microphone">
-  </iframe>
-
-</body>
-</html>
-```
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7620235356155543557', // ID bot của bạn
+    },
+    componentProps: {
+      title: 'AiSecurityTDC Assistant',
+      icon: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/hel_lp_vvsh/coze/logo.png', // Có thể thay bằng link ảnh của bạn
+      lang: 'en', // Hoặc 'zh-CN'
+    },
+    // Không dùng phần auth: { type: 'token' } để đảm bảo an toàn public
+  });
+</script>
