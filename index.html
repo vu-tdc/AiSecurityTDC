@@ -1,26 +1,28 @@
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/libs/oversea/index.js"></script>
+
 <script>
-  function initCoze() {
-    if (typeof CozeWebSDK === "undefined") {
-      setTimeout(initCoze, 500);
-      return;
-    }
-
-    new CozeWebSDK.WebChatClient({
-      config: {
-        bot_id: '7620235356155543557',
-      },
-      componentProps: {
-        title: 'Chatbot AI',
-      },
-      auth: {
-        type: 'token',
-        token: 'pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV',
-        onRefreshToken: async function () {
-          return 'pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV';
-        }
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      if (typeof CozeWebSDK === "undefined") {
+        console.error("SDK chưa load!");
+        return;
       }
-    });
-  }
 
-  initCoze();
+      new CozeWebSDK.WebChatClient({
+        config: {
+          bot_id: "7620235356155543557",
+        },
+        componentProps: {
+          title: "Chatbot AI",
+        },
+        auth: {
+          type: "token",
+          token: "pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV",
+          onRefreshToken: async function () {
+            return "pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV";
+          }
+        }
+      });
+    }, 1000); // delay 1s
+  });
 </script>
