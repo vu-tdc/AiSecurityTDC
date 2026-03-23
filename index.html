@@ -1,12 +1,43 @@
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/libs/oversea/index.js"></script>
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Coze Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-  window.addEventListener("load", function () {
-    setTimeout(function () {
+  <!-- SDK (fallback 2 nguồn CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@coze/chat-sdk/dist/index.min.js"></script>
+  <script>
+    // Nếu CDN chính lỗi → load CDN phụ
+    if (typeof CozeWebSDK === "undefined") {
+      var script = document.createElement("script");
+      script.src = "https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/libs/oversea/index.js";
+      document.head.appendChild(script);
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Chatbot Coze Demo</h2>
+
+  <script>
+    function initChatbot() {
       if (typeof CozeWebSDK === "undefined") {
-        console.error("SDK chưa load!");
+        console.log("⏳ Đang chờ SDK...");
+        setTimeout(initChatbot, 500);
         return;
       }
+
+      console.log("✅ SDK đã load");
 
       new CozeWebSDK.WebChatClient({
         config: {
@@ -17,12 +48,14 @@
         },
         auth: {
           type: "token",
-          token: "pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV",
-          onRefreshToken: async function () {
-            return "pat_Tuskv3YszwhJzCgfcBvcqnvofauzME7LVLWWNmMZ9q0cNjcVQqRelUq1ACoSNHtV";
-          }
+          token: "PASTE_TOKEN_MOI_VAO_DAY",
+          onRefreshToken: async () => "PASTE_TOKEN_MOI_VAO_DAY"
         }
       });
-    }, 1000); // delay 1s
-  });
-</script>
+    }
+
+    window.onload = initChatbot;
+  </script>
+</body>
+</html>
+```
