@@ -6,21 +6,13 @@
   <title>Coze Chatbot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SDK (fallback 2 nguồn CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/@coze/chat-sdk/dist/index.min.js"></script>
-  <script>
-    // Nếu CDN chính lỗi → load CDN phụ
-    if (typeof CozeWebSDK === "undefined") {
-      var script = document.createElement("script");
-      script.src = "https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/libs/oversea/index.js";
-      document.head.appendChild(script);
-    }
-  </script>
+  <!-- Load SDK LOCAL -->
+  <script src="./coze.js"></script>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial;
       text-align: center;
     }
   </style>
@@ -32,12 +24,12 @@
   <script>
     function initChatbot() {
       if (typeof CozeWebSDK === "undefined") {
-        console.log("⏳ Đang chờ SDK...");
+        console.log("⏳ Đang chờ SDK local...");
         setTimeout(initChatbot, 500);
         return;
       }
 
-      console.log("✅ SDK đã load");
+      console.log("✅ SDK local OK");
 
       new CozeWebSDK.WebChatClient({
         config: {
