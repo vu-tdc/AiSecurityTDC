@@ -2,16 +2,16 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Chatbot Coze</title>
+  <title>Coze Chatbot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Coze SDK -->
-  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+  <!-- SDK ổn định -->
+  <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/libs/oversea/index.js"></script>
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial;
     }
   </style>
 </head>
@@ -20,21 +20,23 @@
   <h2 style="text-align:center;">Chatbot Coze Demo</h2>
 
   <script>
-    new CozeWebSDK.WebChatClient({
-      config: {
-        bot_id: '7620235356155543557',
-      },
-      componentProps: {
-        title: 'Coze Chatbot',
-      },
-      auth: {
-        type: 'token',
-        token: 'pat_1zG9Q8OfCWIFwJKxqidQvF18Diou97cy0c6DqOH2ZvxCied6kgrg2KaaJHSiOI37', // 🔥 Thay bằng token thật
-        onRefreshToken: function () {
-          return 'pat_1zG9Q8OfCWIFwJKxqidQvF18Diou97cy0c6DqOH2ZvxCied6kgrg2KaaJHSiOI37'; // 🔥 Thay luôn token ở đây
+    window.onload = function () {
+      new CozeWebSDK.WebChatClient({
+        config: {
+          bot_id: '7620235356155543557',
+        },
+        componentProps: {
+          title: 'Chatbot AI',
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_1zG9Q8OfCWIFwJKxqidQvF18Diou97cy0c6DqOH2ZvxCied6kgrg2KaaJHSiOI37',
+          onRefreshToken: async function () {
+            return 'pat_1zG9Q8OfCWIFwJKxqidQvF18Diou97cy0c6DqOH2ZvxCied6kgrg2KaaJHSiOI37';
+          }
         }
-      }
-    });
+      });
+    };
   </script>
 </body>
 </html>
